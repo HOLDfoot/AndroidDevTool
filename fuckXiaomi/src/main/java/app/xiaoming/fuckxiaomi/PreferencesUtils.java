@@ -1,4 +1,4 @@
-package me.wangyi.fuckvivo;
+package app.xiaoming.fuckxiaomi;
 
 import android.content.Context;
 import android.content.SharedPreferences;

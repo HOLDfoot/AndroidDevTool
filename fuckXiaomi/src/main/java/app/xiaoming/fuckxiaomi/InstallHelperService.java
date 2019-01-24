@@ -1,4 +1,4 @@
-package me.wangyi.fuckvivo;
+package app.xiaoming.fuckxiaomi;
 
 import android.accessibilityservice.AccessibilityService;
 import android.view.accessibility.AccessibilityEvent;

@@ -1,4 +1,4 @@
-package me.wangyi.fuckvivo;
+package app.xiaoming.fuckxiaomi;
 
 /**
  * Author    ZhuMingren

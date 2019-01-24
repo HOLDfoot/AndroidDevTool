@@ -1,4 +1,4 @@
-package me.wangyi.fuckvivo;
+package app.xiaoming.fuckxiaomi;
 
 import android.accessibilityservice.AccessibilityServiceInfo;
 import android.content.Context;
@@ -14,6 +14,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     
     private Button button;
+    private static final String SERVICE_NAME = "app.xiaoming.fuckxiaomi/.InstallHelperService";
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         button = findViewById(R.id.btn_open);
         
-        if (!isStartAccessibilityService(this, "me.wangyi.fuckvivo.InstallHelperService")) {
+        if (!isStartAccessibilityService(this, SERVICE_NAME)) {
             openSettings(null);
         } else {
             Button button = findViewById(R.id.btn_open);
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (!isStartAccessibilityService(this, "me.wangyi.fuckvivo.InstallHelperService")) {
+        if (!isStartAccessibilityService(this, SERVICE_NAME)) {
             button.setText("去打开小米安装服务");
         } else {
             button.setText("小米应用安装服务已打开");
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         List<AccessibilityServiceInfo> serviceInfos = am.getEnabledAccessibilityServiceList(AccessibilityServiceInfo.FEEDBACK_GENERIC);
         for (AccessibilityServiceInfo info : serviceInfos) {
             String id = info.getId();
+            Log.D("id= " + id);
             if (id.contains(name)) {
                 return true;
             }
